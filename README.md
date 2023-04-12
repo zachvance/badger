@@ -1,4 +1,5 @@
-# LinkedIn Skill Assessment Quiz Bot
+# Badger
+### LinkedIn Skill Assessment Quiz Bot
 
 LinkedIn Skill Assessment Quiz Bot is a Python script that automates the process of taking LinkedIn Skill Assessment quizzes. The bot uses Selenium for logging into LinkedIn and collecting data for quiz questions, along with PyAutoGUI and OpenCV for interacting with ChatGPT via the free version of chat.openai.com.
 
