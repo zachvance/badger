@@ -11,6 +11,7 @@ https://user-images.githubusercontent.com/77811876/231528188-ab2de73f-c18e-4080-
 - Built-in support for answering quiz questions using ChatGPT
 - Works with the free version of chat.openai.com
 - Supports both normal and practice mode quizzes
+- Saves a transcript of the questions asked along with their corresponding answer
 
 ## Requirements
 - Python 3
