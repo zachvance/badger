@@ -1,12 +1,12 @@
 """
 Script: LinkedIn Skill Assessment Quiz Bot
-Description: A Python script that automates the process of taking LinkedIn Skill Assessment quizes.
+Description: A Python script that automates the process of taking LinkedIn Skill Assessment quizzes.
 
 This bot utilizes Selenium for logging into LinkedIn and collecting data for quiz questions, in conjuction with
 PyAutoGUI and OpenCV for interacting with ChatGPT via the free version of chat.openai.com. All testing was done using
 GPT 3.5.
 
-Please note that there is still a chance of not passing a quiz with this bot - on the quizes I tested, it would usually
+Please note that there is still a chance of not passing a quiz with this bot - on the quizzes I tested, it would usually
 score perfect on the practices, and score in the top 30% on the real test... but I also had 2 results where it scored in
 bottom 30%.
 
@@ -49,7 +49,7 @@ class Bot:
         self.practice = PRACTICE
         self.driver = webdriver.Firefox()
         self.wait = WebDriverWait(self.driver, 10)
-        self.quizes = [QUIZ_TO_COMPLETE]
+        self.quizzes = [QUIZ_TO_COMPLETE]
         self.email = EMAIL
         self.password = PASSWORD
 
@@ -76,7 +76,7 @@ class Bot:
         :raises: IndexError if the list of available quizzes is empty
         """
         try:
-            self.current_quiz = self.quizes.pop(0)
+            self.current_quiz = self.quizzes.pop(0)
         except IndexError:
             self.current_quiz = None
 
@@ -176,7 +176,7 @@ class Bot:
         pyautogui.click(x, y)
         return (x, y)
 
-    def navigate_to_quizes(self):
+    def navigate_to_quizzes(self):
         self.login_to_linkedin()
 
         # Todo: I wanted to switch this to a wait but the elements won't stay on the screen long enough for me to
@@ -188,7 +188,7 @@ class Bot:
         )
         time.sleep(10)  # Wait for the user to complete the captcha
 
-        # self.driver.get(self.build_hyperlink(self.quizes[0]))  # Going directly to the hyperlinks doesn't seem to work
+        # self.driver.get(self.build_hyperlink(self.quizzes[0]))  # Going directly to the hyperlinks doesn't seem to work
         self.driver.get("https://www.linkedin.com/skill-assessments/")
 
         # Go to the search (requires slight delays after each action)
@@ -415,7 +415,7 @@ class Bot:
     def run(self) -> None:
         self.navigate_to_chat()
         self.set_current_quiz()
-        self.navigate_to_quizes()
+        self.navigate_to_quizzes()
         self.answer_quiz_questions()
         self.save_transcript()
 
